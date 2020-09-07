@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto Condensed";
 }
 
 body {
@@ -11,13 +14,25 @@ body {
 
     #btn-container {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-
-        button {  
+        height: 100%;
+        
+        #btn {  
+            position: relative;
             height: 150px;
             width: 200px;
+            font-size: 1.5em;
+            outline: none;
+            cursor: pointer;
+            background-color: #DDDBF1;
+            border: 0.2rem solid black;
+            box-shadow: 0 3px 0 0 #383F51;
+
+            &:active {
+                top: 3px;
+                box-shadow: none;
+            }
         }
     }
 }
