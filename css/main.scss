@@ -16,7 +16,6 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
         
         #btn {  
             position: relative;
@@ -33,6 +32,16 @@ body {
                 top: 3px;
                 box-shadow: none;
             }
+        }
+    }
+
+    #cps-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            color: white;
         }
     }
 }

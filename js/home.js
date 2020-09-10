@@ -6,8 +6,8 @@ var firstTime;
 
 btn.addEventListener("click", function() {
     i++;
-    console.log(i);
     var latestTime = new Date().getTime();
+    console.log(i);
     if (funcRan == true) {
         btn.textContent = "Click!"
         firstTime = new Date().getTime();
@@ -15,6 +15,6 @@ btn.addEventListener("click", function() {
     if (stopNum == i) {
         console.log("Stopped Counting");
     }
-    console.log(i / (latestTime - firstTime) * 1000);
+    CPS = i / (latestTime - firstTime) * 1000;
     funcRan = false;
 });
