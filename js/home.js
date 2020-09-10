@@ -1,4 +1,5 @@
 var btn = document.getElementById("btn");
+var counter = document.getElementById("cps-counter");
 var i = 0;
 var stopNum = 10;
 var funcRan = true;
@@ -7,7 +8,6 @@ var firstTime;
 btn.addEventListener("click", function() {
     i++;
     var latestTime = new Date().getTime();
-    console.log(i);
     if (funcRan == true) {
         btn.textContent = "Click!"
         firstTime = new Date().getTime();
@@ -15,6 +15,7 @@ btn.addEventListener("click", function() {
     if (stopNum == i) {
         console.log("Stopped Counting");
     }
-    CPS = i / (latestTime - firstTime) * 1000;
+    var CPS = i / (latestTime - firstTime) * 1000;
+    counter.textContent = `Clicks Per Second: ${CPS}`;
     funcRan = false;
 });
