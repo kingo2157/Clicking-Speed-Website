@@ -16,6 +16,7 @@ btn.addEventListener("click", function() {
         console.log("Stopped Counting");
     }
     var CPS = i / (latestTime - firstTime) * 1000;
-    counter.textContent = `Clicks Per Second: ${CPS}`;
+    var rounded_CPS = Math.round(CPS);
+    counter.textContent = `Clicks Per Second: ${rounded_CPS}`;
     funcRan = false;
 });
