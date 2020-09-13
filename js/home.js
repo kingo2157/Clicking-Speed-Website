@@ -1,22 +1,17 @@
 var btn = document.getElementById("btn");
 var counter = document.getElementById("cps-counter");
-var i = 0;
-var stopNum = 10;
-var funcRan = true;
-var firstTime;
+var clicks = 0;
+var hasFuncRan = false;
 
 btn.addEventListener("click", function() {
-    i++;
-    var latestTime = new Date().getTime();
-    if (funcRan == true) {
-        btn.textContent = "Click!"
+    clicks++;
+    if (hasFuncRan == false) {
+        btn.textContent = "Click!";
         firstTime = new Date().getTime();
+        hasFuncRan = true;
     }
-    if (stopNum == i) {
-        console.log("Stopped Counting");
-    }
-    var CPS = i / (latestTime - firstTime) * 1000;
-    var rounded_CPS = CPS.toFixed(3);
-    counter.textContent = `Clicks Per Second: ${rounded_CPS}`;
-    funcRan = false;
+    var latestTime = new Date().getTime();
+    var CPS = clicks / (latestTime - firstTime) * 1000;
+    var roundedCPS = CPS.toFixed(3);
+    counter.textContent = `Clicks Per Second: ${roundedCPS}`;
 });
