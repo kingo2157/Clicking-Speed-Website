@@ -1,5 +1,6 @@
 var btn = document.getElementById("btn");
-var counter = document.getElementById("cps-counter");
+var cpsText = document.getElementById("cps-text");
+var cpsCounter = document.getElementById("cps-counter");
 var clicks = 0;
 var hasFuncRan = false;
 
@@ -9,9 +10,10 @@ btn.addEventListener("click", function() {
         btn.textContent = "Click!";
         firstTime = new Date().getTime();
         hasFuncRan = true;
+        cpsText.textContent = "Clicks Per Second: ";
     }
     var latestTime = new Date().getTime();
     var CPS = clicks / (latestTime - firstTime) * 1000;
     var roundedCPS = CPS.toFixed(3);
-    counter.textContent = `Clicks Per Second: ${roundedCPS}`;
+    cpsCounter.textContent = `sapd ${roundedCPS}`;
 });
