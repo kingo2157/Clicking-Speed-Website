@@ -14,6 +14,6 @@ btn.addEventListener("click", function() {
     }
     var latestTime = new Date().getTime();
     var CPS = clicks / (latestTime - firstTime) * 1000;
-    var roundedCPS = CPS.toFixed(3);
-    cpsCounter.textContent = `sapd ${roundedCPS}`;
+    var roundedCPS = CPS.toFixed(2);
+    cpsCounter.textContent = `${roundedCPS}`;
 });
