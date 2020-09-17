@@ -7,16 +7,23 @@ var hasFuncRan = false;
 
 btn.addEventListener("click", function() {
     clicks++;
+
     if (hasFuncRan == false) {
         btn.textContent = "Click!";
-        firstTime = new Date().getTime();
+        firstTime = performance.now();
         hasFuncRan = true;
-        cpsText.textContent = "Clicks Per Second: ";
     }
-    var latestTime = new Date().getTime();
-    var elapsedTime = latestTime - firstTime;
-    var CPS = clicks / (elapsedTime) * 1000;
-    var roundedCPS = CPS.toFixed(2);
-    cpsCounter.textContent = `${roundedCPS}`;
-    timerText.textContent = `Time Elapsed: ${elapsedTime/1000}`
+    
+    //cpsCounter.textContent = `${roundedCPS}`;
 });
+
+setInterval (function() {
+    var latestTime = performance.now();
+    var elapsedTime = (latestTime - firstTime)/1000;
+    var CPS = clicks / (elapsedTime);
+    var roundedCPS = CPS.toFixed(1);
+
+    cpsText.textContent = "Clicks Per Second: ";
+    cpsText.textContent = `Clicks Per Second: ${roundedCPS}`;
+    timerText.textContent = `Time Elapsed: ${elapsedTime.toFixed(1)}`;
+}, 125);
