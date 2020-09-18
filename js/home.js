@@ -1,7 +1,6 @@
 var btn = document.getElementById("btn");
 var cpsText = document.getElementById("cps-text");
 var timerText = document.getElementById("timer-text");
-var cpsCounter = document.getElementById("cps-counter");
 var clicks = 0;
 var hasFuncRan = false;
 
@@ -13,8 +12,6 @@ btn.addEventListener("click", function() {
         firstTime = performance.now();
         hasFuncRan = true;
     }
-    
-    //cpsCounter.textContent = `${roundedCPS}`;
 });
 
 setInterval (function() {
@@ -23,7 +20,6 @@ setInterval (function() {
     var CPS = clicks / (elapsedTime);
     var roundedCPS = CPS.toFixed(1);
 
-    cpsText.textContent = "Clicks Per Second: ";
     cpsText.textContent = `Clicks Per Second: ${roundedCPS}`;
     timerText.textContent = `Time Elapsed: ${elapsedTime.toFixed(1)}`;
 }, 125);
