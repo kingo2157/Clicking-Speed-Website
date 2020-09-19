@@ -6,6 +6,7 @@ var hasFuncRan = false;
 
 btn.addEventListener("click", function() {
     clicks++;
+    cpsText.style.color = "green";
 
     if (hasFuncRan == false) {
         btn.textContent = "Click!";
@@ -18,7 +19,7 @@ setInterval (function() {
     var latestTime = performance.now();
     var elapsedTime = (latestTime - firstTime)/1000;
     var CPS = clicks / (elapsedTime);
-    var roundedCPS = CPS.toFixed(1);
+    var roundedCPS = CPS.toFixed(2);
 
     cpsText.textContent = `Clicks Per Second: ${roundedCPS}`;
     timerText.textContent = `Time Elapsed: ${elapsedTime.toFixed(1)}`;
