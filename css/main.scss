@@ -28,6 +28,17 @@ body {
             color: white;
         }
 
+        #time-input {
+            display: flex;
+            width: 200px;
+            text-align: center;
+            outline: none;
+
+            ::placeholder {
+                color: green;
+            }
+        }
+
         #btn {
             position: relative;
             height: 150px;
