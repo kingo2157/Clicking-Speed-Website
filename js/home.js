@@ -6,7 +6,7 @@ var hasFuncRan = false;
 
 btn.addEventListener("click", function() {
     clicks++;
-    cpsText.style.color = "green";
+    cpsText.style.color = "red";
 
     if (hasFuncRan == false) {
         btn.textContent = "Click!";
