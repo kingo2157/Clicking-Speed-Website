@@ -8,8 +8,10 @@ var hasFuncRan = false;
 var hasTimeRanOut = false;
 
 btn.addEventListener("click", function() {
-    clicks++;
-    cpsText.style.color = "green";
+    if (hasTimeRanOut == false && timerValue >= 0.5) {
+        clicks++;
+        cpsText.style.color = "green";
+    }
 
     if (hasTimerRan == false && hasTimeRanOut == false) {
         timerValue = document.getElementById("timer-input").value;
@@ -23,8 +25,8 @@ btn.addEventListener("click", function() {
     }
 
     if (hasTimeRanOut == true) {
-        clicks = 0
-        timerValue = 0
+        clicks = 0;
+        timerValue = 0;
         hasTimerRan = false;
         hasFuncRan = false;
         hasTimeRanOut = false;
