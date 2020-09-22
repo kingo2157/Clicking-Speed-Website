@@ -15,7 +15,9 @@ btn.addEventListener("click", function() {
     }
 
     if (hasTimerRan == false && hasTimeRanOut == false) {
-        timerValue = timerInput.value;
+        if (timerInput.value.length <= 8) {
+            timerValue = timerInput.value;
+        }
     }
 
     if (hasFuncRan == false && timerValue >= 0.5 && hasTimeRanOut == false) {
