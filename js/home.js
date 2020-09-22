@@ -25,15 +25,15 @@ btn.addEventListener("click", function() {
         timerText.style.display = "block";
 
         hasFuncRan = true;
-        hasTimerRan == true;
+        hasTimerRan = true;
     }
 
     if (hasTimeRanOut == true) {
-        clicks = 0;
-        timerValue = 0;
         hasTimerRan = false;
         hasFuncRan = false;
         hasTimeRanOut = false;
+        clicks = 0;
+        timerValue = 0;
 
         document.getElementById("timer-input").value = 0;
         timerInput.style.display = "flex";
