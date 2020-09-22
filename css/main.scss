@@ -13,7 +13,6 @@ body {
     align-items: center;
     flex-flow: column;
     height: 100vh;
-    height: 100vh;
     background-color: #3C4F76;
 
     #btn-container {
@@ -31,12 +30,10 @@ body {
         #time-input {
             display: flex;
             width: 200px;
+            margin-bottom: 2px;
             text-align: center;
             outline: none;
-
-            ::placeholder {
-                color: green;
-            }
+            border: 0.2rem solid black;
         }
 
         #btn {
@@ -53,6 +50,7 @@ body {
             &:active {
                 top: 3px;
                 box-shadow: none;
+                color: green;
             }
         }
     } 
