@@ -8,19 +8,27 @@ var hasFuncRan = false;
 var hasTimeRanOut = false;
 
 btn.addEventListener("click", function() {
+    clicks++;
+    cpsText.style.color = "green";
+
     if (hasTimerRan == false && hasTimeRanOut == false) {
         timerValue = document.getElementById("timer-input").value;
     }
-
-    clicks++;
-
-    cpsText.style.color = "green";
 
     if (hasFuncRan == false && timerValue >= 0.5 && hasTimeRanOut == false) {
         hasTimerRan == true;
         btn.textContent = "Click!";
         firstTime = performance.now();
         hasFuncRan = true;
+    }
+
+    if (hasTimeRanOut == true) {
+        clicks = 0
+        timerValue = 0
+        hasTimerRan = false;
+        hasFuncRan = false;
+        hasTimeRanOut = false;
+        document.getElementById("timer-input").value = 0;
     }
 });
 
@@ -38,6 +46,7 @@ setInterval (function() {
         if (elapsedTime >= timerValue) {
             // timerText.textContent = `Time Elapsed: ${elapsedTime.toFixed(0)} / ${timerValue}`; doesnt work with decimals
             hasTimeRanOut = true;
+            btn.textContent = "Click To Restart";
         }
     }
 }, 100);
