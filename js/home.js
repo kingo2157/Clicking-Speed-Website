@@ -15,17 +15,17 @@ btn.addEventListener("click", function() {
     }
 
     if (hasTimerRan == false && hasTimeRanOut == false) {
-        if (timerInput.value.length <= 8) {
-            timerValue = timerInput.value;
-        }
+        if (timerInput.value.length <= 8) { timerValue = timerInput.value; }
     }
 
-    if (hasFuncRan == false && timerValue >= 0.5 && hasTimeRanOut == false) {
-        hasTimerRan == true;
+    if (hasFuncRan == false && hasTimeRanOut == false && timerValue >= 0.5) {
         btn.textContent = "Click!";
         firstTime = performance.now();
-        hasFuncRan = true;
         timerInput.style.display = "none";
+        timerText.style.display = "block";
+
+        hasFuncRan = true;
+        hasTimerRan == true;
     }
 
     if (hasTimeRanOut == true) {
@@ -34,26 +34,30 @@ btn.addEventListener("click", function() {
         hasTimerRan = false;
         hasFuncRan = false;
         hasTimeRanOut = false;
+
         document.getElementById("timer-input").value = 0;
         timerInput.style.display = "flex";
     }
 });
 
 setInterval (function() {
-    if (hasFuncRan == true && timerValue >= 0.5 && hasTimeRanOut == false) {
+    if (hasFuncRan == true && hasTimeRanOut == false && timerValue >= 0.5) {
         var latestTime = performance.now();
         var elapsedTime = (latestTime - firstTime)/1000;
         var CPS = clicks / (elapsedTime);
-        var roundedCPS = CPS.toFixed(2);
 
         cpsText.style.color = "red";
-        cpsText.textContent = `Clicks Per Second: ${roundedCPS}`;
+        cpsText.textContent = `Clicks Per Second: ${CPS.toFixed(2)}`;
         timerText.textContent = `Time Elapsed: ${elapsedTime.toFixed(1)} / ${timerValue}`;
 
         if (elapsedTime >= timerValue) {
             timerText.textContent = `Time Elapsed: ${timerValue} / ${timerValue}`;
-            hasTimeRanOut = true;
+            cpsText.textContent = `CPS: ${CPS.toFixed(2)} %0A  Time: ${timerValue} %0A Clicks: ${clicks}`
+            cpsText.style.color = "white";
+            timerText.style.display = "none";
             btn.textContent = "Click To Restart";
+
+            hasTimeRanOut = true;
         }
     }
 }, 100);
