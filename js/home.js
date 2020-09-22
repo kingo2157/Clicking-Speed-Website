@@ -1,6 +1,7 @@
 var btn = document.getElementById("btn");
 var cpsText = document.getElementById("cps-text");
 var timerText = document.getElementById("timer-text");
+var timerInput = document.getElementById("timer-input");
 var timerValue = 0;
 var clicks = 0;
 var hasTimerRan = false;
@@ -14,7 +15,7 @@ btn.addEventListener("click", function() {
     }
 
     if (hasTimerRan == false && hasTimeRanOut == false) {
-        timerValue = document.getElementById("timer-input").value;
+        timerValue = timerInput.value;
     }
 
     if (hasFuncRan == false && timerValue >= 0.5 && hasTimeRanOut == false) {
@@ -22,6 +23,7 @@ btn.addEventListener("click", function() {
         btn.textContent = "Click!";
         firstTime = performance.now();
         hasFuncRan = true;
+        timerInput.style.display = "none";
     }
 
     if (hasTimeRanOut == true) {
@@ -31,6 +33,7 @@ btn.addEventListener("click", function() {
         hasFuncRan = false;
         hasTimeRanOut = false;
         document.getElementById("timer-input").value = 0;
+        timerInput.style.display = "flex";
     }
 });
 
@@ -46,7 +49,7 @@ setInterval (function() {
         timerText.textContent = `Time Elapsed: ${elapsedTime.toFixed(1)} / ${timerValue}`;
 
         if (elapsedTime >= timerValue) {
-            // timerText.textContent = `Time Elapsed: ${elapsedTime.toFixed(0)} / ${timerValue}`; doesnt work with decimals
+            timerText.textContent = `Time Elapsed: ${timerValue} / ${timerValue}`;
             hasTimeRanOut = true;
             btn.textContent = "Click To Restart";
         }
