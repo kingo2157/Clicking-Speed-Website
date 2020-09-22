@@ -27,7 +27,7 @@ body {
             color: white;
         }
 
-        #time-input {
+        #timer-input {
             display: flex;
             width: 200px;
             margin-bottom: 2px;
@@ -50,7 +50,6 @@ body {
             &:active {
                 top: 3px;
                 box-shadow: none;
-                color: green;
             }
         }
     } 
