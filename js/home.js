@@ -6,6 +6,8 @@ var timerTextValue = document.getElementById("timer-text-value");
 var timerInput = document.getElementById("timer-input");
 var timerValue = 0;
 var clicks = 0;
+var i = 0;
+var oldCPS = 0;
 var hasTimerRan = false;
 var hasFuncRan = false;
 var hasTimeRanOut = false;
@@ -13,7 +15,6 @@ var hasTimeRanOut = false;
 btn.addEventListener("click", function() {
     if (hasTimeRanOut == false && timerValue >= 0.5) {
         clicks++;
-        cpsText.style.color = "green";
     }
 
     if (hasTimerRan == false && hasTimeRanOut == false) {
@@ -49,12 +50,22 @@ setInterval (function() {
         var latestTime = performance.now();
         var elapsedTime = (latestTime - firstTime)/1000;
         var CPS = clicks / (elapsedTime);
+        i++;
 
-        cpsText.style.color = "red";
         cpsText.textContent = 'Clicks Per Second';
         cpsTextValue.textContent = `${CPS.toFixed(2)}`;
         timerText.textContent = 'Time Elapsed';
         timerTextValue.textContent = `${elapsedTime.toFixed(1)} / ${timerValue}`;
+
+        if (i % 2 == 0) { 
+            oldCPS = CPS; 
+        } else {
+            if (CPS > oldCPS) {
+                cpsTextValue.style.color = "green";
+            } else {
+            cpsTextValue.style.color = "red";
+            }
+        }
 
         if (elapsedTime >= timerValue) {
             timerText.textContent = `Time Elapsed: ${timerValue} / ${timerValue}`;
