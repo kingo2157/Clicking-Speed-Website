@@ -1,6 +1,6 @@
 const btn = document.getElementById("btn");
 const cpsText = document.getElementById("cps-text");
-const psTextValue = document.getElementById("cps-text-value");
+const cpsTextValue = document.getElementById("cps-text-value");
 const timerText = document.getElementById("timer-text");
 const timerTextValue = document.getElementById("timer-text-value");
 const timerInput = document.getElementById("timer-input");
