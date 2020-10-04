@@ -69,7 +69,7 @@ setInterval (function() {
 
         if (elapsedTime >= timerValue) {
             timerText.textContent = `Time Elapsed: ${timerValue} / ${timerValue}`;
-            cpsText.textContent = `CPS: ${CPS.toFixed(2)} Time: ${timerValue}s Clicks: ${clicks}`
+            cpsText.textContent = `CPS: ${CPS.toFixed(2)} Time: ${timerValue}s Clicks: ${clicks}`;
             cpsText.style.color = "white";
             timerText.style.display = "none";
             timerTextValue.style.display = "none";
