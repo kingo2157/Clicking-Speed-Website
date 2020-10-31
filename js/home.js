@@ -1,3 +1,9 @@
+/*
+*
+* Probably change the fact that some of the variables have global scope
+*
+*/
+
 const btn = document.getElementById("btn"),
     cpsText = document.getElementById("cps-text"),
     cpsTextValue = document.getElementById("cps-text-value"),
@@ -31,7 +37,7 @@ btn.addEventListener("click", function() {
     }
 
     if (hasTimeRanOut == true) {
-        hasTimerRan = false, hasFuncRan = false, hasTimeRanOut = false;
+        hasTimerRan = false, hasFuncRan = false, hasTimeRanOut = false,
         clicks = 0, timerValue = 0;
 
         document.getElementById("timer-input").value = 0;
