@@ -1,9 +1,3 @@
-/*
-*
-* Probably change the fact that some of the variables have global scope
-*
-*/
-
 const btn = document.getElementById("btn"),
     cpsText = document.getElementById("cps-text"),
     cpsTextValue = document.getElementById("cps-text-value"),
